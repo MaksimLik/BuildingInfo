@@ -15,7 +15,7 @@ public class Room extends Location
         super(id, name);
     }
 
-    protected Room(int id, String name, float area, float cube, float heating, float light)
+    public Room(int id, String name, float area, float cube, float heating, float light)
     {
         super(id, name);
         this.area = area;
@@ -24,8 +24,8 @@ public class Room extends Location
         this.light = light;
     }
 
-    protected float roomArea()
+    public void showArea()
     {
-        return this.area;
+        System.out.println(this.name + " area: " + this.area);
     }
 }
