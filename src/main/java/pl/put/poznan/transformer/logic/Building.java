@@ -1,17 +1,18 @@
-package pl.put.poznan.transformer;
+package pl.put.poznan.transformer.logic;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.*;
+
 /**
  * Contains info about building.
  */
-public class Building extends Floor
+public class Building extends Location
 {
     ArrayList<Floor> floors = new ArrayList<Floor>();
+
     public Building(int id, String name)
     {
         super(id, name);
+
     }
 
     public ArrayList<Floor> getFloors()
@@ -57,7 +58,7 @@ public class Building extends Floor
     {
         float sum = 0;
         for (Floor floor : floors)
-            sum = sum + floor.cube;
+            sum = sum + floor.sumCube();
         return sum;
     }
 }

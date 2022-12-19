@@ -1,18 +1,13 @@
-package pl.put.poznan.transformer;
+package pl.put.poznan.transformer.logic;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.*;
-public class Floor extends Room
+
+public class Floor extends Location
 {
     private ArrayList<Room> rooms = new ArrayList<Room>();
     public Floor(int id, String name)
     {
         super(id, name);
-    }
-
-    public ArrayList<Room> getRooms(){
-        return rooms;
     }
 
 
@@ -30,7 +25,7 @@ public class Floor extends Room
     public float sumArea() {
         float sum = 0;
         for (Room room : rooms)
-            sum = sum + room.area;
+            sum = sum + room.getArea();
 
         return sum;
     }
@@ -44,7 +39,12 @@ public class Floor extends Room
     {
         float sum = 0;
         for (Room room : rooms)
-            sum = sum + room.cube;
+            sum = sum + room.getCube();
         return sum;
+    }
+
+
+    public ArrayList<Room> getRooms(){
+        return rooms;
     }
 }
