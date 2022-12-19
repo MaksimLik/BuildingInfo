@@ -1,8 +1,6 @@
-import pl.put.poznan.transformer.Building;
-import pl.put.poznan.transformer.Floor;
-import pl.put.poznan.transformer.Room;
-
-import javax.swing.*;
+import pl.put.poznan.transformer.logic.Building;
+import pl.put.poznan.transformer.logic.Floor;
+import pl.put.poznan.transformer.logic.Room;
 
 public class Main
 {

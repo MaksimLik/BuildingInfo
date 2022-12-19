@@ -1,14 +1,16 @@
-package pl.put.poznan.transformer;
+package pl.put.poznan.transformer.logic;
+
+import pl.put.poznan.transformer.logic.Location;
 
 /**
  * Contains info about room with all details.
  */
 public class Room extends Location
 {
-    protected float area = 0;
-    protected float cube = 0;
-    protected float heating = 0;
-    protected float light = 0;
+    private float area;
+    private float cube;
+    private float heating;
+    private float light;
 
     public Room(int id, String name)
     {
@@ -27,5 +29,25 @@ public class Room extends Location
     public void showArea()
     {
         System.out.println(this.name + " area: " + this.area);
+    }
+
+
+
+
+
+    public float getArea() {
+        return area;
+    }
+
+    public float getCube() {
+        return cube;
+    }
+
+    public float getHeating() {
+        return heating;
+    }
+
+    public float getLight() {
+        return light;
     }
 }
