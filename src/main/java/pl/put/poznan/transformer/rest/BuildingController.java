@@ -9,10 +9,16 @@ import pl.put.poznan.transformer.logic.Room;
 
 import java.util.List;
 
-
+/**
+ * Class is used for Spring Application
+ */
 @RestController
 @RequestMapping(path = "api/v1")
 public class BuildingController {
+    /**
+     * This method is engaged in the maintenance of information for the application
+     * @return list of building with information about their area, cube, heating, light
+     */
     @GetMapping
     public List<Building> getBuilding() {
         Building building = new Building(1,"Willa");
