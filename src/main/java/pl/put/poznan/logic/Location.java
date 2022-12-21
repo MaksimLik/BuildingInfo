@@ -2,6 +2,9 @@ package pl.put.poznan.logic;
 
 import java.util.ArrayList;
 
+/**
+ * Basic interface which contains universal info about location
+ */
 public interface Location
 {
      int getId();
