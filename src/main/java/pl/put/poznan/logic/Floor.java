@@ -1,18 +1,19 @@
 package pl.put.poznan.logic;
 
 import java.util.ArrayList;
-/**
- * Contains info about floor.
- */
 
+/**
+ * Contains info about single floor.
+ */
 public class Floor extends Location
 {
     /**
      * Array List with information about all our rooms in floor
      */
     private ArrayList<Room> rooms = new ArrayList<Room>();
+
     /**
-     * Constructor - creating a new object with certain values
+     * Class constructor
      * @see Floor#Floor(int id, String name)
      * @param id - our unique number
      * @param name - our name for Building or Room, Floor etc.
@@ -21,6 +22,7 @@ public class Floor extends Location
     {
         super(id, name);
     }
+
     /**
      * This method returns our Rooms
      * @return all our rooms of one floor
@@ -29,7 +31,7 @@ public class Floor extends Location
         return rooms;
     }
     /**
-     * This method add objects as room
+     * This method add Room objects to list of rooms
      * @param object room
      */
     public void add(Room object)
@@ -56,6 +58,10 @@ public class Floor extends Location
         return sum;
     }
 
+    /**
+     * Calculate light on the whole floor
+     * @return sum of area all room in building as [m^2]
+     */
     public float sumLight() {
         float sum = 0;
         for (Room room : rooms)
@@ -72,8 +78,7 @@ public class Floor extends Location
     }
 
     /**
-     * This method sum information about area rooms
-     * @return sum as [m^3] all rooms of one floor
+     * Show average value power of lightning on the floor
      */
     public void showLightPower()
     {
@@ -85,7 +90,10 @@ public class Floor extends Location
         else
             System.out.println("0");
     }
-
+    /**
+     * This method sum cubes
+     * @return sum as [m^3] all rooms of one floor
+     */
     public float sumCube()
     {
         float sum = 0;

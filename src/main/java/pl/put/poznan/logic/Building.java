@@ -71,6 +71,16 @@ public class Building extends Location
 
         return sum;
     }
+    /**
+     * Calculate light on the whole building
+     * @return sum of area all room in building as [m^2]
+     */
+    public float sumLight() {
+        float sum = 0;
+        for (Floor floor : floors)
+            sum = sum + floor.sumLight();
+        return sum;
+    }
 
     /**
      * This method show information about all area in building as [m^2]
@@ -78,6 +88,20 @@ public class Building extends Location
     public void showArea()
     {
         System.out.println(this.name + " building area: " + sumArea());
+    }
+
+    /**
+     * Show average value power of lightning on the floor
+     */
+    public void showLightPower()
+    {
+        float sum_area = this.sumArea();
+        float sum_light = this.sumLight();
+        System.out.print("Average power of lightning in whole building " + this.name +": ");
+        if (sum_area != 0)
+            System.out.println(sum_light / sum_area);
+        else
+            System.out.println("0");
     }
 
     /**
