@@ -23,14 +23,8 @@ public abstract class BaseLocation implements Location {
     }
 
     /**
-     * Constructor without values
-     */
-    public BaseLocation() {
-    }
-
-    /**
-     * This method return id for object in this Class
-     * @return id unique value for object
+     * Return id, used in other functions
+     * @return id
      */
     @Override
     public int getId() {

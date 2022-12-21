@@ -47,7 +47,6 @@ public class Room extends BaseLocation
         this.light = light;
     }
 
-
     /**
      * Shows info about whole room
      */
@@ -74,6 +73,10 @@ public class Room extends BaseLocation
             System.out.println("0");
     }
 
+    /**
+     * Get area of the room
+     * @return
+     */
     @Override
     public float getArea() {
         return area;
@@ -106,7 +109,11 @@ public class Room extends BaseLocation
         return light;
     }
 
-
+    /**
+     * Decide if heating in the room is above selected value
+     * @param border selected value
+     * @return true if overheated, false if not
+     */
     public boolean heatingLevel(float border)
     {
         if( (this.cube != 0) && (this.heating / this.cube > border) )

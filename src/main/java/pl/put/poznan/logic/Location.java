@@ -2,9 +2,8 @@ package pl.put.poznan.logic;
 
 import java.util.ArrayList;
 
-public interface Location {
-
-
+public interface Location
+{
      int getId();
      String getName();
 
@@ -38,9 +37,7 @@ public interface Location {
      void showLightPower();
 
     /**
-     * No comments will create in future spring
+     * Shows info about locations
      */
-    void show();
-
-
+     void show();
 }

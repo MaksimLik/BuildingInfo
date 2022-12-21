@@ -11,6 +11,7 @@ public class Floor extends BaseLocation
      * Array List with information about all our rooms in floor
      */
     private final ArrayList<Room> rooms;
+
     /**
      * Class constructor
      * @see Floor#Floor(int id, String name)
@@ -30,6 +31,7 @@ public class Floor extends BaseLocation
     public ArrayList<Room> getRooms(){
         return rooms;
     }
+
     /**
      * This method add Room objects to list of rooms
      * @param object room
@@ -38,6 +40,7 @@ public class Floor extends BaseLocation
     {
         rooms.add(object);
     }
+
     /**
      * This method uses for show information about all rooms on the floor
      * Their name as table
@@ -48,6 +51,7 @@ public class Floor extends BaseLocation
         System.out.println("List of rooms on the floor " + this.name + ": ");
         rooms.forEach((n) -> System.out.println(" - " + n.name));
     }
+
     /**
      * This method uses to calculate the all area in all rooms
      * @return sum of area all room in building as [m^2]
@@ -71,7 +75,6 @@ public class Floor extends BaseLocation
             sum = sum + room.getLight();
         return sum;
     }
-
 
     /**
      * Show average value power of lightning on the floor
@@ -112,7 +115,6 @@ public class Floor extends BaseLocation
         return sum;
     }
 
-
     /**
      * Select overheated rooms
      * @param border heating value which cannot be overrated
@@ -130,6 +132,4 @@ public class Floor extends BaseLocation
         }
         return group;
     }
-
-
 }

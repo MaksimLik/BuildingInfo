@@ -3,7 +3,7 @@ package pl.put.poznan.logic;
 import java.util.ArrayList;
 
 /**
- * Contains info about building.
+ * Contains info about building
  */
 public class Building extends BaseLocation
 {
@@ -137,6 +137,4 @@ public class Building extends BaseLocation
         }
         return rooms_list;
     }
-
-
 }
