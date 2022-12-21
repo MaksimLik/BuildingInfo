@@ -1,3 +1,4 @@
+pl\put\poznan\logic\BaseLocation.class
 pl\put\poznan\logic\Building.class
 pl\put\poznan\BuildingApplication.class
 pl\put\poznan\rest\BuildingService.class

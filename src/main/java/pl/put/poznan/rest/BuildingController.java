@@ -3,7 +3,8 @@ package pl.put.poznan.rest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pl.put.poznan.logic.Building;
-import pl.put.poznan.logic.Location;
+import pl.put.poznan.logic.BaseLocation;
+import pl.put.poznan.logic.Room;
 
 import java.util.List;
 
@@ -31,13 +32,12 @@ public class BuildingController {
     }
 
     @GetMapping(path = "location/{id}")
-    public Location getLocationById(@PathVariable("id") int id) {
+    public BaseLocation getLocationById(@PathVariable("id") int id) {
         return buildingService.getLocationById(id);
     }
 
     @PostMapping
     public void insertBuilding(@RequestBody Building building) {
-
         buildingService.insertBuilding(building);
     }
 
@@ -46,6 +46,10 @@ public class BuildingController {
         buildingService.deleteLocation(id);
     }
 
+//    @GetMapping(path = "overheating/{id}/{value}")
+//    public List<Room> getOverheatedRooms(@PathVariable("id", "value") int value) {
+//        return buildingService.getOverheatedRooms(value);
+//    }
 }
 
 

@@ -2,7 +2,7 @@ package pl.put.poznan.rest;
 
 import pl.put.poznan.logic.Building;
 import pl.put.poznan.logic.Floor;
-import pl.put.poznan.logic.Location;
+import pl.put.poznan.logic.BaseLocation;
 import pl.put.poznan.logic.Room;
 
 import java.util.ArrayList;
@@ -56,8 +56,8 @@ public class BuildingRepository {
          });
     }
 
-    public Location getLocationById(int id) {
-        Location l = null;
+    public BaseLocation getLocationById(int id) {
+        BaseLocation l = null;
         for (int i = 0; i < buildings.size(); i++) {
             Building b = buildings.get(i);
             if (b.getId() == id){ l = b; break;}
@@ -74,5 +74,9 @@ public class BuildingRepository {
             }
         }
         return l;
+    }
+
+    public List<Room> getOverheatedRooms(int value) {
+        return null;
     }
 }

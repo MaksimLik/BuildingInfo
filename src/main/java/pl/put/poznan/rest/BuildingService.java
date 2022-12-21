@@ -2,7 +2,8 @@ package pl.put.poznan.rest;
 
 import org.springframework.stereotype.Service;
 import pl.put.poznan.logic.Building;
-import pl.put.poznan.logic.Location;
+import pl.put.poznan.logic.BaseLocation;
+import pl.put.poznan.logic.Room;
 
 import java.util.List;
 
@@ -29,8 +30,12 @@ public class BuildingService {
         buildingRepository.deleteLocationById(id);
     }
 
-    public Location getLocationById(int id) {
+    public BaseLocation getLocationById(int id) {
        return buildingRepository.getLocationById(id);
 
+    }
+
+    public List<Room> getOverheatedRooms(int value) {
+        return buildingRepository.getOverheatedRooms(value);
     }
 }

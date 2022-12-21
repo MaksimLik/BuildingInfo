@@ -1,10 +1,13 @@
 package pl.put.poznan.logic;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Contains info about room with all details.
  */
 
-public class Room extends Location
+public class Room extends BaseLocation
 {
     /** area of room */
     private float area = 0.0F;
@@ -19,7 +22,7 @@ public class Room extends Location
      * Constructor - creating a new object with certain values
      * @param id - our unique number
      * @param name - our name for Building or Room, Floor etc.
-     * @see Location#Location(int id, String name)
+     * @see BaseLocation#BaseLocation(int id, String name)
      */
     public Room(int id, String name)
     {
@@ -44,15 +47,20 @@ public class Room extends Location
         this.light = light;
     }
 
-    /**
-     * Method feeding the size of one room
-     * @return size as [m^2]
-     */
-    public void showArea()
-    {
-        System.out.println(this.name + " area: " + this.area);
+
+
+    @Override
+    public void show() {
+        System.out.println("Info about this room: "+ this.name);
+        System.out.println("Id: " + this.id);
+        System.out.println("Area: " + this.area);
+        System.out.println("Cube: " + this.cube);
+        System.out.println("Heating: " + this.heating);
+        System.out.println("Light: " + this.light);
     }
 
+
+    @Override
     public void showLightPower()
     {
         System.out.print("Power of lightning in room " + this.name +": ");
@@ -62,6 +70,7 @@ public class Room extends Location
             System.out.println("0");
     }
 
+    @Override
     public float getArea() {
         return area;
     }
@@ -70,6 +79,7 @@ public class Room extends Location
      * Method feeding the size of one room
      * @return size as [m^3]
      */
+    @Override
     public float getCube() {
         return cube;
     }
@@ -78,6 +88,7 @@ public class Room extends Location
      * Method feeding the heating of one room
      * @return amount of energy
      */
+    @Override
     public float getHeating() {
         return heating;
     }
@@ -86,9 +97,11 @@ public class Room extends Location
      * Method feeding the light of one room
      * @return amount of energy
      */
+    @Override
     public float getLight() {
         return light;
     }
+
 
     public boolean heatingLevel(float border)
     {
@@ -99,3 +112,5 @@ public class Room extends Location
         return false;
     }
 }
+
+

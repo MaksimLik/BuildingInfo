@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Contains info about building.
  */
-public class Building extends Location
+public class Building extends BaseLocation
 {
 
 
@@ -17,7 +17,7 @@ public class Building extends Location
     * Constructor - creating a new object with certain values
      * @param id - our unique number
      * @param name - our name for Building or Room, Floor etc.
-     * @see Location#Location(int id, String name)
+     * @see BaseLocation#BaseLocation(int id, String name)
     */
     public Building(int id, String name)
     {
@@ -45,6 +45,7 @@ public class Building extends Location
      * This method uses for show information about all floors
      * Their id and name as table
      */
+    @Override
     public void show()
     {
         System.out.println("List of floors in building " + this.name + ": ");
@@ -61,12 +62,13 @@ public class Building extends Location
      * This method uses to calculate the all area in building
      * @return sum of area all floors in building as [m^2]
      */
-    public float sumArea()
+    @Override
+    public float getArea()
     {
         float sum = 0;
         for (Floor floor : floors)
         {
-            sum = sum + floor.sumArea();
+            sum = sum + floor.getArea();
         }
 
         return sum;
@@ -75,28 +77,23 @@ public class Building extends Location
      * Calculate light on the whole building
      * @return sum of area all room in building as [m^2]
      */
-    public float sumLight() {
+    @Override
+    public float getLight() {
         float sum = 0;
         for (Floor floor : floors)
-            sum = sum + floor.sumLight();
+            sum = sum + floor.getLight();
         return sum;
     }
 
-    /**
-     * This method show information about all area in building as [m^2]
-     */
-    public void showArea()
-    {
-        System.out.println(this.name + " building area: " + sumArea());
-    }
+
 
     /**
      * Show average value power of lightning on the floor
      */
     public void showLightPower()
     {
-        float sum_area = this.sumArea();
-        float sum_light = this.sumLight();
+        float sum_area = this.getArea();
+        float sum_light = this.getLight();
         System.out.print("Average power of lightning in whole building " + this.name +": ");
         if (sum_area != 0)
             System.out.println(sum_light / sum_area);
@@ -108,21 +105,33 @@ public class Building extends Location
      * This method to calculate cube sum
      * @return sum as [m^3] of area on all floors in building
      */
-    public float sumCube()
+    @Override
+    public float getCube()
     {
         float sum = 0;
         for (Floor floor : floors)
-            sum = sum + floor.sumCube();
+            sum = sum + floor.getCube();
         return sum;
     }
 
-    public ArrayList<Room> levelHeating()
+    @Override
+    public float getHeating()
+    {
+        float sum = 0;
+        for (Floor floor : floors)
+            sum = sum + floor.getHeating();
+        return sum;
+    }
+
+    public ArrayList<Room> levelHeating(float border)
     {
         ArrayList<Room> rooms_list = new ArrayList<Room>();
         for (Floor floor : floors)
         {
-            rooms_list.addAll(floor.levelHeating(1.5F));
+            rooms_list.addAll(floor.levelHeating(border));
         }
         return rooms_list;
     }
+
+
 }

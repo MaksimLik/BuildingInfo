@@ -5,12 +5,12 @@ import java.util.ArrayList;
 /**
  * Contains info about single floor.
  */
-public class Floor extends Location
+public class Floor extends BaseLocation
 {
     /**
      * Array List with information about all our rooms in floor
      */
-    private ArrayList<Room> rooms = new ArrayList<Room>();
+    private final ArrayList<Room> rooms;
     /**
      * Class constructor
      * @see Floor#Floor(int id, String name)
@@ -20,6 +20,8 @@ public class Floor extends Location
     public Floor(int id, String name)
     {
         super(id, name);
+        this.rooms = new ArrayList<Room>();
+
     }
 
     /**
@@ -38,9 +40,10 @@ public class Floor extends Location
         rooms.add(object);
     }
     /**
-     * This method uses for show information about all rooms in floor
+     * This method uses for show information about all rooms on the floor
      * Their name as table
      */
+    @Override
     public void show()
     {
         System.out.println("List of rooms on the floor " + this.name + ": ");
@@ -50,7 +53,8 @@ public class Floor extends Location
      * This method uses to calculate the all area in all rooms
      * @return sum of area all room in building as [m^2]
      */
-    public float sumArea() {
+    @Override
+    public float getArea() {
         float sum = 0;
         for (Room room : rooms)
             sum = sum + room.getArea();
@@ -61,28 +65,22 @@ public class Floor extends Location
      * Calculate light on the whole floor
      * @return sum of area all room in building as [m^2]
      */
-    public float sumLight() {
+    @Override
+    public float getLight() {
         float sum = 0;
         for (Room room : rooms)
             sum = sum + room.getLight();
         return sum;
     }
-    /**
-     * This method is used to display information about the area of one floor
-     * Their name as table
-     */
-    public void showArea()
-    {
-        System.out.println(this.name + " floor area: " + sumArea());
-    }
+
 
     /**
      * Show average value power of lightning on the floor
      */
     public void showLightPower()
     {
-        float sum_area = this.sumArea();
-        float sum_light = this.sumLight();
+        float sum_area = this.getArea();
+        float sum_light = this.getLight();
         System.out.print("Power of lightning on the floor " + this.name +": ");
         if (sum_area != 0)
             System.out.println(sum_light / sum_area);
@@ -94,13 +92,23 @@ public class Floor extends Location
      * This method sum cubes
      * @return sum as [m^3] all rooms of one floor
      */
-    public float sumCube()
+    @Override
+    public float getCube()
     {
         float sum = 0;
         for (Room room : rooms)
             sum = sum + room.getCube();
         return sum;
     }
+
+    @Override
+    public float getHeating() {
+        float sum = 0;
+        for (Room room : rooms)
+            sum = sum + room.getHeating();
+        return sum;
+    }
+
 
     /**
      * Select overheated rooms
@@ -119,4 +127,6 @@ public class Floor extends Location
         }
         return group;
     }
+
+
 }

@@ -1,33 +1,42 @@
 package pl.put.poznan.logic;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import java.util.ArrayList;
 
-/**
- * Our abstract class containing information for all objects
- */
-@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
-public abstract class Location
-{
-    /** Our unique element for identification our other objects  */
-    protected int id;
-    /** Our name information */
-    protected String name;
+public interface Location {
+
+
+     int getId();
+     String getName();
+
     /**
-     * Constructor - creating a new object with certain values
-     * @param id - our unique number
-     * @param name - our name for Building or Room, Floor etc.
-     * */
-    public Location(int id, String name)
-    {
-        this.id = id;
-        this.name = name;
-    }
+     * Method feeding the area of one room
+     * @return size as [m^2]
+     */
+     float getArea();
 
-    public int getId() {
-        return id;
-    }
+    /**
+     * Method feeding the size of one room
+     * @return size as [m^3]
+     */
+     float getCube();
 
-    public String getName() {
-        return name;
-    }
+    /**
+     * Method feeding the heating of one room
+     * @return amount of energy
+     */
+     float getHeating();
+
+    /**
+     * Method feeding the light of one room
+     * @return amount of energy
+     */
+     float getLight();
+
+
+     void showLightPower();
+
+
+     void show();
+
+
 }

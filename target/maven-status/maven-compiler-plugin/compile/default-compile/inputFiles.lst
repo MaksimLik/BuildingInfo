@@ -1,9 +1,10 @@
-C:\Users\Admin\Desktop\Politechnika V sem\IO\GHGH\IOD-I51-Alpha-BuildingInfo\src\main\java\pl\put\poznan\logic\Room.java
-C:\Users\Admin\Desktop\Politechnika V sem\IO\GHGH\IOD-I51-Alpha-BuildingInfo\src\main\java\pl\put\poznan\BuildingApplication.java
-C:\Users\Admin\Desktop\Politechnika V sem\IO\GHGH\IOD-I51-Alpha-BuildingInfo\src\main\java\pl\put\poznan\logic\Building.java
-C:\Users\Admin\Desktop\Politechnika V sem\IO\GHGH\IOD-I51-Alpha-BuildingInfo\src\main\java\pl\put\poznan\rest\BuildingService.java
-C:\Users\Admin\Desktop\Politechnika V sem\IO\GHGH\IOD-I51-Alpha-BuildingInfo\src\main\java\pl\put\poznan\rest\RepositoryHolder.java
-C:\Users\Admin\Desktop\Politechnika V sem\IO\GHGH\IOD-I51-Alpha-BuildingInfo\src\main\java\pl\put\poznan\rest\BuildingController.java
-C:\Users\Admin\Desktop\Politechnika V sem\IO\GHGH\IOD-I51-Alpha-BuildingInfo\src\main\java\pl\put\poznan\logic\Floor.java
-C:\Users\Admin\Desktop\Politechnika V sem\IO\GHGH\IOD-I51-Alpha-BuildingInfo\src\main\java\pl\put\poznan\logic\Location.java
-C:\Users\Admin\Desktop\Politechnika V sem\IO\GHGH\IOD-I51-Alpha-BuildingInfo\src\main\java\pl\put\poznan\rest\BuildingRepository.java
+C:\Users\Łukasz\Desktop\IO\IOD-I51-Alpha-BuildingInfo\src\main\java\pl\put\poznan\logic\Location.java
+C:\Users\Łukasz\Desktop\IO\IOD-I51-Alpha-BuildingInfo\src\main\java\pl\put\poznan\logic\Room.java
+C:\Users\Łukasz\Desktop\IO\IOD-I51-Alpha-BuildingInfo\src\main\java\pl\put\poznan\BuildingApplication.java
+C:\Users\Łukasz\Desktop\IO\IOD-I51-Alpha-BuildingInfo\src\main\java\pl\put\poznan\logic\Building.java
+C:\Users\Łukasz\Desktop\IO\IOD-I51-Alpha-BuildingInfo\src\main\java\pl\put\poznan\rest\BuildingService.java
+C:\Users\Łukasz\Desktop\IO\IOD-I51-Alpha-BuildingInfo\src\main\java\pl\put\poznan\rest\BuildingRepository.java
+C:\Users\Łukasz\Desktop\IO\IOD-I51-Alpha-BuildingInfo\src\main\java\pl\put\poznan\rest\BuildingController.java
+C:\Users\Łukasz\Desktop\IO\IOD-I51-Alpha-BuildingInfo\src\main\java\pl\put\poznan\logic\Floor.java
+C:\Users\Łukasz\Desktop\IO\IOD-I51-Alpha-BuildingInfo\src\main\java\pl\put\poznan\rest\RepositoryHolder.java
+C:\Users\Łukasz\Desktop\IO\IOD-I51-Alpha-BuildingInfo\src\main\java\pl\put\poznan\logic\BaseLocation.java
