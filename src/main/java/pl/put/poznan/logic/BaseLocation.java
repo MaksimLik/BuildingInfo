@@ -22,19 +22,34 @@ public abstract class BaseLocation implements Location {
         this.name = name;
     }
 
+    /**
+     * Constructor without values
+     */
     public BaseLocation() {
     }
 
+    /**
+     * This method return id for object in this Class
+     * @return id unique value for object
+     */
     @Override
     public int getId() {
         return id;
     }
 
+    /**
+     * This method return name of object for this Class
+     * @return name of object
+     */
     @Override
     public String getName() {
         return name;
     }
 
+    /**
+     * This method get area of object in this class
+     * @return size of territory in object
+     */
     public float getArea() {
         return 0;
     }

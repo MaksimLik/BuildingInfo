@@ -32,11 +32,15 @@ public interface Location {
      */
      float getLight();
 
-
+    /**
+     * This method will show information about energy power for lightning of location
+     */
      void showLightPower();
 
-
-     void show();
+    /**
+     * No comments will create in future spring
+     */
+    void show();
 
 
 }

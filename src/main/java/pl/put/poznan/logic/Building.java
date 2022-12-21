@@ -111,7 +111,7 @@ public class Building extends BaseLocation
     }
 
     /**
-     *
+     * Method get value of heating in Building
      * @return sum of the heating in whole building
      */
     @Override
@@ -123,6 +123,11 @@ public class Building extends BaseLocation
         return sum;
     }
 
+    /**
+     * This method create list of room with information about heating in building
+     * @param border this is border of building
+     * @return list of rooms with information about heating
+     */
     public ArrayList<Room> levelHeating(float border)
     {
         ArrayList<Room> rooms_list = new ArrayList<Room>();
