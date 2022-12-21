@@ -83,8 +83,6 @@ public class Building extends BaseLocation
         return sum;
     }
 
-
-
     /**
      * Show average value power of lightning on the floor
      */
@@ -112,6 +110,10 @@ public class Building extends BaseLocation
         return sum;
     }
 
+    /**
+     *
+     * @return sum of the heating in whole building
+     */
     @Override
     public float getHeating()
     {

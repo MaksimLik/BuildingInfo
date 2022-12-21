@@ -21,7 +21,6 @@ public class Floor extends BaseLocation
     {
         super(id, name);
         this.rooms = new ArrayList<Room>();
-
     }
 
     /**
@@ -101,6 +100,10 @@ public class Floor extends BaseLocation
         return sum;
     }
 
+    /**
+     * Get the sum of heating
+     * @return summary power of the heating
+     */
     @Override
     public float getHeating() {
         float sum = 0;

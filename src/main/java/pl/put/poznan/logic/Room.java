@@ -48,7 +48,9 @@ public class Room extends BaseLocation
     }
 
 
-
+    /**
+     * Shows info about whole room
+     */
     @Override
     public void show() {
         System.out.println("Info about this room: "+ this.name);
@@ -59,7 +61,9 @@ public class Room extends BaseLocation
         System.out.println("Light: " + this.light);
     }
 
-
+    /**
+     * Show power of the light measured in lumens
+     */
     @Override
     public void showLightPower()
     {
