@@ -1,8 +1,8 @@
-package pl.put.poznan.transformer.rest;
+package pl.put.poznan.rest;
 
 import org.springframework.stereotype.Service;
-import pl.put.poznan.transformer.logic.Building;
-import pl.put.poznan.transformer.logic.Location;
+import pl.put.poznan.logic.Building;
+import pl.put.poznan.logic.Location;
 
 import java.util.List;
 

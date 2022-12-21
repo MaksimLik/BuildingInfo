@@ -1,13 +1,12 @@
-package pl.put.poznan.transformer.rest;
+package pl.put.poznan.rest;
 
-import pl.put.poznan.transformer.logic.Building;
-import pl.put.poznan.transformer.logic.Floor;
-import pl.put.poznan.transformer.logic.Location;
-import pl.put.poznan.transformer.logic.Room;
+import pl.put.poznan.logic.Building;
+import pl.put.poznan.logic.Floor;
+import pl.put.poznan.logic.Location;
+import pl.put.poznan.logic.Room;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class BuildingRepository {
     private final List<Building> buildings;

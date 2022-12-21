@@ -1,4 +1,4 @@
-package pl.put.poznan.transformer.rest;
+package pl.put.poznan.rest;
 
 public final class RepositoryHolder {
     private BuildingRepository buildingRepository;

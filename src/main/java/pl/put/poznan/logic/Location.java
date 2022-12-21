@@ -1,4 +1,4 @@
-package pl.put.poznan.transformer.logic;
+package pl.put.poznan.logic;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 

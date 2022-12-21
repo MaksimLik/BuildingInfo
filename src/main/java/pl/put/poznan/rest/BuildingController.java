@@ -1,11 +1,9 @@
-package pl.put.poznan.transformer.rest;
+package pl.put.poznan.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pl.put.poznan.transformer.logic.Building;
-import pl.put.poznan.transformer.logic.Floor;
-import pl.put.poznan.transformer.logic.Location;
-import pl.put.poznan.transformer.logic.Room;
+import pl.put.poznan.logic.Building;
+import pl.put.poznan.logic.Location;
 
 import java.util.List;
 

@@ -1,12 +1,9 @@
-package pl.put.poznan.transformer.logic;
-
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import pl.put.poznan.transformer.logic.Location;
+package pl.put.poznan.logic;
 
 /**
  * Contains info about room with all details.
  */
-//@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
+
 public class Room extends Location
 {
     /** area of room */
