@@ -71,12 +71,10 @@ public class Floor extends Location
         System.out.println(this.name + " floor area: " + sumArea());
     }
 
-<<<<<<< Updated upstream:src/main/java/pl/put/poznan/logic/Floor.java
     /**
      * This method sum information about area rooms
      * @return sum as [m^3] all rooms of one floor
      */
-=======
     public void showLightPower()
     {
         float sum_area = this.sumArea();
@@ -88,7 +86,6 @@ public class Floor extends Location
             System.out.println("0");
     }
 
->>>>>>> Stashed changes:src/main/java/pl/put/poznan/transformer/logic/Floor.java
     public float sumCube()
     {
         float sum = 0;

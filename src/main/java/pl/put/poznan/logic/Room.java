@@ -61,7 +61,7 @@ public class Room extends Location
         else
             System.out.println("0");
     }
-    
+
     public float getArea() {
         return area;
     }
@@ -88,14 +88,6 @@ public class Room extends Location
      */
     public float getLight() {
         return light;
-    }
-    /**
-     * This method uses for show information about one room
-     * Their area as table
-     */
-    public void showArea()
-    {
-        System.out.println(this.name + " area: " + this.area);
     }
 
 }
