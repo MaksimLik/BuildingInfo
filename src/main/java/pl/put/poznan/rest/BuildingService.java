@@ -35,7 +35,7 @@ public class BuildingService {
 
     }
 
-    public List<Room> getOverheatedRooms(int value) {
-        return buildingRepository.getOverheatedRooms(value);
+    public List<Room> getOverheatedRooms(int id, int value) {
+        return buildingRepository.getOverheatedRooms(id, value);
     }
 }
