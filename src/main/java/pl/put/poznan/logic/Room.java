@@ -6,21 +6,14 @@ package pl.put.poznan.logic;
 
 public class Room extends Location
 {
-<<<<<<< Updated upstream:src/main/java/pl/put/poznan/logic/Room.java
     /** area of room */
-    private float area;
-    /** cube area of room */
-    private float cube;
-    /** heating of room */
-    private float heating;
-    /** light of room */
-    private float light;
-=======
     private float area = 0.0F;
+    /** cube area of room */
     private float cube = 0.0F;
+    /** heating of room */
     private float heating = 0.0F;
+    /** light of room */
     private float light = 0.0F;
->>>>>>> Stashed changes:src/main/java/pl/put/poznan/transformer/logic/Room.java
 
     /**
      * Constructor - creating a new object with certain values
@@ -51,12 +44,10 @@ public class Room extends Location
         this.light = light;
     }
 
-<<<<<<< Updated upstream:src/main/java/pl/put/poznan/logic/Room.java
     /**
      * Method feeding the size of one room
      * @return size as [m^2]
      */
-=======
     public void showArea()
     {
         System.out.println(this.name + " area: " + this.area);
@@ -70,9 +61,7 @@ public class Room extends Location
         else
             System.out.println("0");
     }
-
-
->>>>>>> Stashed changes:src/main/java/pl/put/poznan/transformer/logic/Room.java
+    
     public float getArea() {
         return area;
     }
