@@ -1,5 +1,6 @@
 import pl.put.poznan.transformer.logic.Building;
 import pl.put.poznan.transformer.logic.Floor;
+import pl.put.poznan.transformer.logic.Location;
 import pl.put.poznan.transformer.logic.Room;
 
 /**
@@ -20,6 +21,13 @@ public class Main
      * @param args this is our functions and objects in different classes
      */
     public static void main(String[] args) {
+
+        Building b = new Building(33, "Andrze");
+
+        Location l = b;
+
+        System.out.println(l.getId());
+
         floor.add(room);
         floor.add(room2);
         floor2.add(room4);
@@ -27,9 +35,9 @@ public class Main
         building.add(floor);
         building.add(floor2);
         building.show();
-        floor.show();
-        floor.showArea();
-        building.showArea();
-        room2.showArea();
+//        floor.show();
+//        floor.showArea();
+//        building.showArea();
+//        room2.showArea();
     }
 }
