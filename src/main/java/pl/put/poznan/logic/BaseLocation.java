@@ -32,13 +32,8 @@ public abstract class BaseLocation implements Location {
     }
 
     /**
-<<<<<<< Updated upstream
-     * This method return name of object for this Class
-     * @return name of object
-=======
      * Return name, used in other functions
      * @return name
->>>>>>> Stashed changes
      */
     @Override
     public String getName() {
@@ -46,13 +41,8 @@ public abstract class BaseLocation implements Location {
     }
 
     /**
-<<<<<<< Updated upstream
-     * This method get area of object in this class
-     * @return size of territory in object
-=======
      * Return area, used in other functions
      * @return default 0
->>>>>>> Stashed changes
      */
     public float getArea() {
         return 0;

@@ -111,11 +111,7 @@ public class Building extends BaseLocation
     }
 
     /**
-<<<<<<< Updated upstream
-     * Method get value of heating in Building
-=======
      * Sum heating in the building
->>>>>>> Stashed changes
      * @return sum of the heating in whole building
      */
     @Override
@@ -128,15 +124,9 @@ public class Building extends BaseLocation
     }
 
     /**
-<<<<<<< Updated upstream
-     * This method create list of room with information about heating in building
-     * @param border this is border of building
-     * @return list of rooms with information about heating
-=======
      * Add all overheating rooms to one list
      * @param border border for room's heating
      * @return list of overheated rooms
->>>>>>> Stashed changes
      */
     public ArrayList<Room> levelHeating(float border)
     {

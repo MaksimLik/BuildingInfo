@@ -32,11 +32,7 @@ public interface Location
      float getLight();
 
     /**
-<<<<<<< Updated upstream
-     * This method will show information about energy power for lightning of location
-=======
      * Method that show average of the light
->>>>>>> Stashed changes
      */
      void showLightPower();
 
