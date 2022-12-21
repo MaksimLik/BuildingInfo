@@ -11,7 +11,6 @@ public class Floor extends Location
      * Array List with information about all our rooms in floor
      */
     private ArrayList<Room> rooms = new ArrayList<Room>();
-    private ArrayList<Room> overheated = new ArrayList<Room>();
     /**
      * Class constructor
      * @see Floor#Floor(int id, String name)
@@ -103,4 +102,21 @@ public class Floor extends Location
         return sum;
     }
 
+    /**
+     * Select overheated rooms
+     * @param border heating value which cannot be overrated
+     * @return list of overheated rooms
+     */
+    public ArrayList<Room> levelHeating(float border)
+    {
+        ArrayList<Room> group = new ArrayList<Room>();
+        for (Room room : rooms)
+        {
+            if (room.heatingLevel(border))
+            {
+                group.add(room);
+            }
+        }
+        return group;
+    }
 }

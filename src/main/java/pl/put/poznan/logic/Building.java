@@ -115,4 +115,14 @@ public class Building extends Location
             sum = sum + floor.sumCube();
         return sum;
     }
+
+    public ArrayList<Room> levelHeating()
+    {
+        ArrayList<Room> rooms_list = new ArrayList<Room>();
+        for (Floor floor : floors)
+        {
+            rooms_list.addAll(floor.levelHeating(1.5F));
+        }
+        return rooms_listl
+    }
 }
