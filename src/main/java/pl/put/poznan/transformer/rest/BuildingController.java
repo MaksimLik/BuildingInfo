@@ -1,10 +1,10 @@
 package pl.put.poznan.transformer.rest;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 import pl.put.poznan.transformer.logic.Building;
 import pl.put.poznan.transformer.logic.Floor;
+import pl.put.poznan.transformer.logic.Location;
 import pl.put.poznan.transformer.logic.Room;
 
 import java.util.List;
@@ -15,19 +15,37 @@ import java.util.List;
 @RestController
 @RequestMapping(path = "api/v1")
 public class BuildingController {
+    private final BuildingService buildingService;
+
+    @Autowired
+    public BuildingController(BuildingService buildingService) {
+        this.buildingService = buildingService;
+    }
+
     /**
      * This method is engaged in the maintenance of information for the application
      * @return list of building with information about their area, cube, heating, light
      */
-    @GetMapping
-    public List<Building> getBuilding() {
-        Building building = new Building(1,"Willa");
-        Floor floor = new Floor(1,"Carpet");
-        Room room  = new Room(123, "bathroom", 5, 3, 25, 15);
+    @GetMapping(path = "buildings")
+    public List<Building> getBuildings() {
 
-        floor.add(room);
-        building.add(floor);
-        return List.of(building);
+        return buildingService.getBuildings();
+    }
+
+    @GetMapping(path = "location/{id}")
+    public Location getLocationById(@PathVariable("id") int id) {
+        return buildingService.getLocationById(id);
+    }
+
+    @PostMapping
+    public void insertBuilding(@RequestBody Building building) {
+
+        buildingService.insertBuilding(building);
+    }
+
+    @DeleteMapping(path = "{id}")
+    public void deleteLocation(@PathVariable("id") int id) {
+        buildingService.deleteLocation(id);
     }
 
 }

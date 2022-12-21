@@ -7,6 +7,8 @@ import java.util.ArrayList;
  */
 public class Building extends Location
 {
+
+
     /**
      * Array List with information about all our floors in Building
      */
