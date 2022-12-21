@@ -53,7 +53,13 @@ public class Floor extends Location
         float sum = 0;
         for (Room room : rooms)
             sum = sum + room.getArea();
+        return sum;
+    }
 
+    public float sumLight() {
+        float sum = 0;
+        for (Room room : rooms)
+            sum = sum + room.getLight();
         return sum;
     }
     /**
@@ -65,10 +71,24 @@ public class Floor extends Location
         System.out.println(this.name + " floor area: " + sumArea());
     }
 
+<<<<<<< Updated upstream:src/main/java/pl/put/poznan/logic/Floor.java
     /**
      * This method sum information about area rooms
      * @return sum as [m^3] all rooms of one floor
      */
+=======
+    public void showLightPower()
+    {
+        float sum_area = this.sumArea();
+        float sum_light = this.sumLight();
+        System.out.print("Power of lightning on the floor " + this.name +": ");
+        if (sum_area != 0)
+            System.out.println(sum_light / sum_area);
+        else
+            System.out.println("0");
+    }
+
+>>>>>>> Stashed changes:src/main/java/pl/put/poznan/transformer/logic/Floor.java
     public float sumCube()
     {
         float sum = 0;
