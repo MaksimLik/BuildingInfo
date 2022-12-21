@@ -46,10 +46,18 @@ public class BuildingController {
         buildingService.deleteLocation(id);
     }
 
-//    @GetMapping(path = "overheating/{id}/{value}")
-//    public List<Room> getOverheatedRooms(@PathVariable("id", "value") int value) {
-//        return buildingService.getOverheatedRooms(value);
-//    }
+    @GetMapping(path = "overheating/{id}/{value}")
+    public List<Room> getOverheatedRooms(@PathVariable int id, @PathVariable  int value ) {
+        return buildingService.getOverheatedRooms(id, value);
+    }
+
+    @GetMapping(path = "null")
+        public List<Room> getOverheatedRooms() {
+            return null;
+        }
+
+
+
 }
 
 
