@@ -11,7 +11,7 @@ public class Floor extends Location
      * Array List with information about all our rooms in floor
      */
     private ArrayList<Room> rooms = new ArrayList<Room>();
-
+    private ArrayList<Room> overheated = new ArrayList<Room>();
     /**
      * Class constructor
      * @see Floor#Floor(int id, String name)
@@ -90,6 +90,7 @@ public class Floor extends Location
         else
             System.out.println("0");
     }
+
     /**
      * This method sum cubes
      * @return sum as [m^3] all rooms of one floor

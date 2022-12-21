@@ -90,4 +90,12 @@ public class Room extends Location
         return light;
     }
 
+    public boolean heatingLevel(float border)
+    {
+        if( (this.cube != 0) && (this.heating / this.cube > border) )
+        {
+            return true;
+        }
+        return false;
+    }
 }
