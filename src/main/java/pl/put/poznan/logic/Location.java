@@ -7,7 +7,16 @@ import java.util.ArrayList;
  */
 public interface Location
 {
+    /**
+     * This method return argument for identification object
+     * @return id unique value
+     */
      int getId();
+
+    /**
+     * This method return name of object
+     * @return name of object
+     */
      String getName();
 
     /**
