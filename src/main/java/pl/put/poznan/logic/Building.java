@@ -7,8 +7,6 @@ import java.util.ArrayList;
  */
 public class Building extends BaseLocation
 {
-
-
     /**
      * Array List with information about all our floors in Building
      */
@@ -102,7 +100,7 @@ public class Building extends BaseLocation
     }
 
     /**
-     * This method to calculate cube sum
+     * This method calculate cube
      * @return sum as [m^3] of area on all floors in building
      */
     @Override
