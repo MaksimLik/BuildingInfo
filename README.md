@@ -23,7 +23,8 @@ Dla administratorów budynków, którzy pragną optymalizować koszty zarządzan
  [*Nacisnij na mnie*](https://docs.google.com/spreadsheets/d/1hf-mf7IO9Z-v3826LD75ZTwRdHropKfN/edit#gid=795588837)
 2. Schemat UML:
 
-![Schemat UML](https://user-images.githubusercontent.com/72620745/209026121-bcd7d9a8-0e64-48f2-a66c-f89f7238854e.png)
+![UML diagram](https://user-images.githubusercontent.com/72620745/209119129-4e573feb-e92b-4d95-ae06-6745f2b1a778.png)
+
 
 
 
