@@ -20,26 +20,26 @@ public interface Location
      String getName();
 
     /**
-     * Method feeding the area of one room
+     * Method get area of room, floor, building
      * @return size as [m^2]
      */
      float getArea();
 
     /**
-     * Method feeding the size of one room
+     * Method get cubature of room, floor, building
      * @return size as [m^3]
      */
      float getCube();
 
     /**
-     * Method feeding the heating of one room
+     * Method get heating of room, floor, building
      * @return amount of energy
      */
      float getHeating();
 
     /**
-     * Method feeding the light of one room
-     * @return amount of energy
+     * Method get light of room, floor, building
+     * @return lightning
      */
      float getLight();
 

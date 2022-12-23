@@ -98,8 +98,8 @@ public class Building extends BaseLocation
     }
 
     /**
-     * This method calculate cube
-     * @return sum as [m^3] of area on all floors in building
+     * This method calculate sum of cube
+     * @return cube sum as [m^3] in the single building
      */
     @Override
     public float getCube()

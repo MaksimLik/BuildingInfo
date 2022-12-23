@@ -83,7 +83,7 @@ public class Room extends BaseLocation
     }
 
     /**
-     * Method feeding the size of one room
+     * This method sum cubes
      * @return size as [m^3]
      */
     @Override

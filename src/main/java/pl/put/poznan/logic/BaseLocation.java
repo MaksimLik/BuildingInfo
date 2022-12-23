@@ -49,7 +49,7 @@ public abstract class BaseLocation implements Location {
     }
 
     /**
-     * Method feeding the size of one room
+     * This method sum size of rooms
      * @return size as [m^3]
      */
     public float getCube(){

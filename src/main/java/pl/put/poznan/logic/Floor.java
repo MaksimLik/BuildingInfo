@@ -92,7 +92,7 @@ public class Floor extends BaseLocation
 
     /**
      * This method sum cubes
-     * @return sum as [m^3] all rooms of one floor
+     * @return sum as [m^3] all rooms on the single floor
      */
     @Override
     public float getCube()
