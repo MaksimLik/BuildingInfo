@@ -16,7 +16,7 @@ class BuildingTest {
     Floor floor1, floor2, floor3, floor4;
     Room room1, room2, room3, room4, room5, room6, room7, room8, room9, room10;
     ArrayList<Floor> building1Floors, building2Floors, building3Floors;
-
+    ArrayList<Room> building1Rooms, building2Rooms, building3Rooms;
     ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @BeforeEach
@@ -53,11 +53,13 @@ class BuildingTest {
         floor2.add(room8);
         floor2.add(room9);
         floor2.add(room10);
+
         floor3.add(room2);
         // floor4 has no rooms
 
         building1.add(floor1);
         building1.add(floor2);
+
         building2.add(floor3);
         building2.add(floor4);  //add empty floor
 
@@ -74,6 +76,17 @@ class BuildingTest {
         building3Floors = new ArrayList<Floor>();
         building3Floors.add(floor3);
 
+
+    }
+
+    /**
+     * Pass when list is created correctly.
+     */
+    @Test
+    void testGetFloors() {
+        Assert.assertEquals(building1Floors, building1.getFloors());
+        Assert.assertEquals(building2Floors, building2.getFloors());
+        Assert.assertEquals(building3Floors, building3.getFloors());
     }
 
     /**
@@ -89,18 +102,44 @@ class BuildingTest {
     }
 
     /**
-     * Pass when list is created correctly.
+     * Check light getter.
      */
     @Test
-    void testGetFloors() {
-        Assert.assertEquals(building1Floors, building1.getFloors());
-        Assert.assertEquals(building2Floors, building2.getFloors());
-        Assert.assertEquals(building3Floors, building3.getFloors());
+    void testGetLight() {
+        assertEquals(625, building1.getLight()); //sum couple of rooms
+        assertEquals(10, building2.getLight()); //sum two floors, floor4 is empty
+        assertEquals(10, building3.getLight()); //sum single floor
     }
 
-
+    /**
+     * Check cubature getter.
+     */
     @Test
-    void testSumCube() {
-
+    void testGetCube() {
+        assertEquals(910, building1.getCube()); //sum couple of rooms
+        assertEquals(10, building2.getCube()); //sum two floors, floor4 is empty
+        assertEquals(10, building3.getCube()); //sum single floor
     }
+
+    /**
+     * Check heating getter.
+     */
+    @Test
+    void testGetHeating() {
+        assertEquals(470, building1.getHeating()); //sum couple of rooms
+        assertEquals(10, building2.getHeating()); //sum two floors, floor4 is empty
+        assertEquals(10, building3.getHeating()); //sum single floor
+    }
+
+    /**
+     * TODO cała ta funkcja, rozkminić jak wyjąć wszystkie pokoje
+     */
+    @Test
+    void testLevelHeating() {
+        assertEquals(1, building1.levelHeating(0.6f)); //sum couple of rooms
+        //assertEquals(10, building2.levelHeating(1)); //sum two floors, floor4 is empty
+        //assertEquals(10, building3.levelHeating(1)); //sum single floor
+    }
+
+
 }
