@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="IOD-I51-Alpha-BuildingInfo:jar">
+  <artifact type="jar" build-on-make="true" name="IOD-I51-Alpha-BuildingInfo:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/IOD_I51_Alpha_BuildingInfo_jar</output-path>
     <root id="archive" name="IOD-I51-Alpha-BuildingInfo.jar">
       <element id="module-output" name="IOD-I51-Alpha-BuildingInfo" />
