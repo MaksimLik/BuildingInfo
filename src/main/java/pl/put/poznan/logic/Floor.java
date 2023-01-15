@@ -34,11 +34,13 @@ public class Floor extends BaseLocation
 
     /**
      * This method add Room objects to list of rooms
-     * @param object room
+     * @param room room
      */
-    public void add(Room object)
+    public void add(Room room)
     {
-        rooms.add(object);
+        if ((room.getArea() < 0) || (room.getCube() < 0) || (room.getLight() < 0))
+            throw new IllegalArgumentException();
+        rooms.add(room);
     }
 
     /**

@@ -65,6 +65,7 @@ class BuildingTest {
 
         building3.add(floor3);
 
+        //for get floors test
         building1Floors = new ArrayList<Floor>();
         building1Floors.add(floor1);
         building1Floors.add(floor2);
