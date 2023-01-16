@@ -10,11 +10,7 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * TODO ujemne wartości
- */
 class FloorTest {
-
     Floor floor1, floor2, floor3;
     Room room1, room2, room3, room4, room5;
     ArrayList<Room> floorRooms1, floorRooms2, floorRooms3;
@@ -29,7 +25,7 @@ class FloorTest {
         room2 = new Room(5, "Kitchen", 40, 160, 45, 150);
         room3 = new Room(6, "Bedroom", 20, 55, 30, 30);
         room4 = new Room(7, "Living room", 125, 130, 215, 115);
-        room5 = new Room(8, "Fake room", -1, -1, -1, -1);
+        room5 = new Room(8, "Fake room", 1, -1, -1, -1);
         try
         {
             floor1.addRoom(room1);
@@ -104,7 +100,7 @@ class FloorTest {
     void levelHeating()
     {
         ArrayList<Room> chosenRooms = new ArrayList<Room>();
-        chosenRooms.add(room4);
+        chosenRooms.add(room4);     // overheated with border 0.6
         Assert.assertEquals(chosenRooms, floor1.levelHeating(0.6f));
     }
 }
