@@ -1,42 +1,75 @@
 package pl.put.poznan.logic;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Contains info about single floor.
  */
-public class Floor extends BaseLocation
+@Entity
+@Table(name = "Floors")
+public class Floor extends BaseLocation implements Serializable
 {
     /**
-     * Array List with information about all our rooms in floor
+     * Set with information about all our rooms in floor
      */
-    private final ArrayList<Room> rooms;
+    @OneToMany(targetEntity = Room.class, cascade = CascadeType.ALL)
+    private Set<Room> rooms;
 
-    /**
-     * Class constructor
-     * @see Floor#Floor(int id, String name)
-     * @param id - our unique number
-     * @param name - our name for Building or Room, Floor etc.
-     */
-    public Floor(int id, String name)
-    {
+    @JsonIgnore
+    @ManyToOne(targetEntity = Building.class, cascade = CascadeType.ALL)
+    @JoinColumn(name ="building_id", referencedColumnName = "location_id")
+    private Building building;
+
+//
+//    /**
+//     * Class constructor
+//     * @see Floor#Floor(int id, String name)
+//     * @param id - our unique number
+//     * @param name - our name for Building or Room, Floor etc.
+//     */
+
+
+    public Floor(int id, String name) {
         super(id, name);
-        this.rooms = new ArrayList<Room>();
+        this.rooms = new HashSet<>();
+
     }
 
-    /**
-     * This method returns our Rooms
-     * @return all our rooms of one floor
-     */
-    public ArrayList<Room> getRooms(){
+    public Floor(String name) {
+        super(name);
+        this.rooms = new HashSet<>();
+    }
+
+    public Floor() {
+        this.rooms = new HashSet<>();
+    }
+
+
+
+    public void setBuilding(Building building) {
+        this.building = building;
+    }
+
+
+    public Set<Room> getRooms() {
         return rooms;
+    }
+
+    public Building getBuilding() {
+        return building;
     }
 
     /**
      * This method add Room objects to list of rooms
      * @param room room
      */
-    public void add(Room room)
+    public void addRoom(Room room)
     {
         if ((room.getArea() < 0) || (room.getCube() < 0) || (room.getLight() < 0))
             throw new IllegalArgumentException();

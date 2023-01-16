@@ -32,11 +32,11 @@ class FloorTest {
         room5 = new Room(8, "Fake room", -1, -1, -1, -1);
         try
         {
-            floor1.add(room1);
-            floor1.add(room2);
-            floor1.add(room3);
-            floor1.add(room4);
-            floor2.add(room5);
+            floor1.addRoom(room1);
+            floor1.addRoom(room2);
+            floor1.addRoom(room3);
+            floor1.addRoom(room4);
+            floor2.addRoom(room5);
         }
         catch (IllegalArgumentException ignored){}
 
@@ -57,7 +57,7 @@ class FloorTest {
     void testAdd()
     {
         assertThrows(IllegalArgumentException.class,
-                () -> floor2.add(room5));
+                () -> floor2.addRoom(room5));
     }
 
     @Test

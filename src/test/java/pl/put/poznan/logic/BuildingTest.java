@@ -42,28 +42,28 @@ class BuildingTest {
         room9 = new Room(12, "Kitchen", 40, 160, 45, 150);
         room10 = new Room(13, "Bedroom", 20, 55, 30, 30);
 
-        floor1.add(room1);
-        floor1.add(room2);
-        floor1.add(room3);
-        floor1.add(room4);
-        floor1.add(room5);
-        floor1.add(room6);
+        floor1.addRoom(room1);
+        floor1.addRoom(room2);
+        floor1.addRoom(room3);
+        floor1.addRoom(room4);
+        floor1.addRoom(room5);
+        floor1.addRoom(room6);
 
-        floor2.add(room7);
-        floor2.add(room8);
-        floor2.add(room9);
-        floor2.add(room10);
+        floor2.addRoom(room7);
+        floor2.addRoom(room8);
+        floor2.addRoom(room9);
+        floor2.addRoom(room10);
 
-        floor3.add(room2);
+        floor3.addRoom(room2);
         // floor4 has no rooms
 
-        building1.add(floor1);
-        building1.add(floor2);
+        building1.addFloor(floor1);
+        building1.addFloor(floor2);
 
-        building2.add(floor3);
-        building2.add(floor4);  //add empty floor
+        building2.addFloor(floor3);
+        building2.addFloor(floor4);  //add empty floor
 
-        building3.add(floor3);
+        building3.addFloor(floor3);
 
         //for get floors test
         building1Floors = new ArrayList<Floor>();

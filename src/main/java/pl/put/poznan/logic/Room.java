@@ -1,5 +1,8 @@
 package pl.put.poznan.logic;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,16 +10,35 @@ import java.util.List;
  * Contains info about room with all details.
  */
 
+@Entity
+@Table(name="Rooms")
 public class Room extends BaseLocation
 {
     /** area of room */
-    private float area = 0.0F;
+    @Column(name = "area")
+    private float area;
     /** cube area of room */
-    private float cube = 0.0F;
+    @Column(name = "cubature")
+    private float cube;
     /** heating of room */
-    private float heating = 0.0F;
+    @Column(name = "heating")
+    private float heating;
     /** light of room */
-    private float light = 0.0F;
+    @Column(name = "light")
+    private float light;
+
+    @JsonIgnore
+    @ManyToOne(targetEntity = Floor.class, cascade = CascadeType.ALL)
+    @JoinColumn(name ="floor_id", referencedColumnName = "location_id")
+    private Floor floor;
+
+    public Room() {
+
+    }
+
+    public Room(String name){
+        super(name);
+    }
 
     /**
      * Constructor - creating a new object with certain values
@@ -31,13 +53,21 @@ public class Room extends BaseLocation
 
     /**
      * Additional construction for room
-     * @param id - unique number
      * @param name - name for Building or Room, Floor etc.
      * @param area - area of room
      * @param cube - cube area of room [m^3]
      * @param heating - heating of room
      * @param light - light of room
      */
+    public Room(String name, float area, float cube, float heating, float light)
+    {
+        super( name);
+        this.area = area;
+        this.cube = cube;
+        this.heating = heating;
+        this.light = light;
+    }
+
     public Room(int id, String name, float area, float cube, float heating, float light)
     {
         super(id, name);
@@ -46,6 +76,7 @@ public class Room extends BaseLocation
         this.heating = heating;
         this.light = light;
     }
+
 
     /**
      * Shows info about whole room
@@ -122,6 +153,19 @@ public class Room extends BaseLocation
         }
         return false;
     }
+
+    public void setFloor(Floor floor) {
+        this.floor = floor;
+    }
+
+    public void updateRoom(Room newRoom) {
+        this.name = newRoom.getName();
+        this.area = newRoom.getArea();
+        this.cube = newRoom.getCube();
+        this.heating = newRoom.getHeating();
+        this.light = newRoom.getLight();
+    }
+
 }
 
 

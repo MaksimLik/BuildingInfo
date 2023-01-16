@@ -1,41 +1,53 @@
 package pl.put.poznan.logic;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Contains info about building
  */
-public class Building extends BaseLocation
+@Entity
+@Table(name = "Buildings")
+public class Building extends BaseLocation implements Serializable
 {
     /**
-     * Array List with information about all our floors in Building
+     * Set with information about all our floors in Building
      */
-    ArrayList<Floor> floors = new ArrayList<Floor>();
+    @OneToMany(targetEntity = Floor.class, cascade = CascadeType.ALL)
+    private Set<Floor> floors;
     /**
     * Constructor - creating a new object with certain values
-     * @param id - our unique number
      * @param name - our name for Building or Room, Floor etc.
      * @see BaseLocation#BaseLocation(int id, String name)
     */
-    public Building(int id, String name)
+    public Building(String name)
     {
-        super(id, name);
+        super(name);
+        this.floors = new HashSet<>();
+    }
 
+    public Building() {
+        this.floors = new HashSet<>();
     }
-    /**
-     * This method returns our floors to us
-     * @return all our floors in building
-     */
-    public ArrayList<Floor> getFloors()
-    {
-        return floors;
+
+    public Building(int id, String name) {
+        super(id, name);
+        this.floors = new HashSet<>();
     }
+
+
 
     /**
      * This method add objects as floor
      * @param object floor
      */
-    public void add(Floor object)
+    public void addFloor(Floor object)
     {
         floors.add(object);
     }
@@ -51,7 +63,7 @@ public class Building extends BaseLocation
         for (Floor floor : floors)
         {
             System.out.println("|- " + floor.id + ". " + floor.name);
-            ArrayList<Room> rooms = floor.getRooms();
+            Set<Room> rooms = floor.getRooms();
             for (Room r : rooms)
                 System.out.println("  |- " + r.id + ". " +  r.name);
         }
@@ -137,4 +149,10 @@ public class Building extends BaseLocation
         }
         return rooms_list;
     }
+
+    public Set<Floor> getFloors() {
+        return this.floors;
+    }
+
+
 }
