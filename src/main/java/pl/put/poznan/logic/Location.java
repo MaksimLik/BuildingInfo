@@ -9,7 +9,7 @@ public interface Location
 {
     /**
      * This method return argument for identification object
-     * @return id unique value
+     * @return id unique value which positive int number
      */
      int getId();
 

@@ -6,14 +6,16 @@ import org.junit.jupiter.api.Test;
 import org.testng.Assert;
 
 
-import java.util.ArrayList;
+import java.util.*;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.hamcrest.Matchers.hasItems;
 import static org.junit.jupiter.api.Assertions.*;
 
 class FloorTest {
     Floor floor1, floor2, floor3;
     Room room1, room2, room3, room4, room5;
-    ArrayList<Room> floorRooms1, floorRooms2, floorRooms3;
     @BeforeEach
     public void setUp()
     {
@@ -26,31 +28,18 @@ class FloorTest {
         room3 = new Room(6, "Bedroom", 20, 55, 30, 30);
         room4 = new Room(7, "Living room", 125, 130, 215, 115);
         room5 = new Room(8, "Fake room", 1, -1, -1, -1);
-        try
-        {
-            floor1.addRoom(room1);
-            floor1.addRoom(room2);
-            floor1.addRoom(room3);
-            floor1.addRoom(room4);
+        floor1.addRoom(room1);
+        floor1.addRoom(room2);
+        floor1.addRoom(room3);
+        floor1.addRoom(room4);
+        try {
             floor2.addRoom(room5);
         }
         catch (IllegalArgumentException ignored){}
-
-        floorRooms1 = new ArrayList<Room>();
-        floorRooms1.add(room1);
-        floorRooms1.add(room2);
-        floorRooms1.add(room3);
-        floorRooms1.add(room4);
-
-        // negative variables
-        floorRooms2  = new ArrayList<Room>();
-
-        // empty floor
-        floorRooms3 = new ArrayList<Room>();
     }
 
     @Test
-    void testAdd()
+    void testAddRoom()
     {
         assertThrows(IllegalArgumentException.class,
                 () -> floor2.addRoom(room5));
@@ -59,6 +48,13 @@ class FloorTest {
     @Test
     void testGetRooms()
     {
+        Set<Room> floorRooms1 = new HashSet<Room>();
+        Set<Room> floorRooms2 = new HashSet<Room>();
+        Set<Room> floorRooms3 = new HashSet<Room>();
+        floorRooms1.add(room1);
+        floorRooms1.add(room2);
+        floorRooms1.add(room3);
+        floorRooms1.add(room4);
         Assert.assertEquals(floorRooms1, floor1.getRooms());
         Assert.assertEquals(floorRooms2, floor2.getRooms());
         Assert.assertEquals(floorRooms3, floor3.getRooms()); // empty floor
@@ -97,9 +93,9 @@ class FloorTest {
     }
 
     @Test
-    void levelHeating()
+    void testLevelHeating()
     {
-        ArrayList<Room> chosenRooms = new ArrayList<Room>();
+        Set<Room> chosenRooms = new HashSet<Room>();
         chosenRooms.add(room4);     // overheated with border 0.6
         Assert.assertEquals(chosenRooms, floor1.levelHeating(0.6f));
     }

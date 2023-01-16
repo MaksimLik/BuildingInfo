@@ -41,15 +41,15 @@ public class Building extends BaseLocation implements Serializable
         this.floors = new HashSet<>();
     }
 
-
-
     /**
      * This method add objects as floor
-     * @param object floor
+     * @param floor floor
      */
-    public void addFloor(Floor object)
+    public void addFloor(Floor floor)
     {
-        floors.add(object);
+        if (floor.getId() < 0)
+            throw new IllegalArgumentException();
+        floors.add(floor);
     }
     /**
      * This method uses for show information about all floors
