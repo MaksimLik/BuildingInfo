@@ -9,6 +9,7 @@ import pl.put.poznan.logic.Room;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class BuildingService {
@@ -32,17 +33,26 @@ public class BuildingService {
     }
 
     public void insertFloorIntoBuilding(Floor floor, int id) {
-        Building building = buildingRepository.findById(id).get();
-        floor.setBuilding(building);
-        building.addFloor(floor);
-        floorRepository.save(floor);
+        if (buildingRepository.findById(id).isPresent()) {
+            Building building = buildingRepository.findById(id).get();
+            floor.setBuilding(building);
+            building.addFloor(floor);
+            floorRepository.save(floor);
+        } else {
+            throw new NoSuchElementException();
+        }
+
     }
 
     public void insertRoomIntoFloor(Room room, int id) {
-        Floor floor = floorRepository.findById(id).get();
-        room.setFloor(floor);
-        floor.addRoom(room);
-        roomRepository.save(room);
+        if (floorRepository.findById(id).isPresent()) {
+            Floor floor = floorRepository.findById(id).get();
+            room.setFloor(floor);
+            floor.addRoom(room);
+            roomRepository.save(room);
+        } else {
+            throw new NoSuchElementException();
+        }
     }
 
 

@@ -68,7 +68,6 @@ public class BuildingController {
 
 
 
-
     @DeleteMapping(path = "building/{id}")
     public void deleteBuildingById(@PathVariable("id") int id) {
          buildingService.deleteBuildingById(id);
