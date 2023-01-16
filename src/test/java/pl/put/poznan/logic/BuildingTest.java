@@ -5,19 +5,29 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.testng.Assert;
 
-import java.io.ByteArrayOutputStream;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Building class test.
+ */
 class BuildingTest {
-    Building building1, building2, building3; //1 - normal, 2 - with fake room, 3 - with fake floor
-
-    Floor floor1, floor2, floor3; // 1 - 3 rooms, 2 - fake room, 3 - fake floor
+    /** building1: normal
+     *  building2: with fake room
+     *  building3: with fake floor
+     */
+    Building building1, building2, building3;
+    /** floor1: 3 rooms
+     *  floor2: fake room
+     *  floor3: fake floor
+     */
+    Floor floor1, floor2, floor3;
+    /** room1-3: normal
+     *  room4: fake
+     */
     Room room1, room2, room3, room4;
-    //ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @BeforeEach
     public void setUp() throws Exception  {
@@ -49,6 +59,9 @@ class BuildingTest {
         } catch (IllegalArgumentException ignored){}
     }
 
+    /**
+     * Test throwing exception when add invalid floor.
+     */
     @Test
     void testAddFloor()
     {
@@ -57,6 +70,9 @@ class BuildingTest {
     }
     /**
      * Pass when list is created correctly.
+     * building1 should return normal floors with rooms.
+     * building2 should have only floor without room.
+     * building3 shouldn't have floors, so there is no need to add any.
      */
     @Test
     void testGetFloors() {
@@ -73,9 +89,9 @@ class BuildingTest {
 
     /**
      * Check sum of all floors
-     * first test: sum single floor
-     * second test: sum 1 floor with 1 fake room
-     * third: fake floor
+     * First test: sum single floor
+     * Second test: sum 1 floor with 1 fake room
+     * Third: fake floor
      */
     @Test
     void testGetArea() {
@@ -86,9 +102,9 @@ class BuildingTest {
 
     /**
      * Check light getter
-     * first test: sum single floor
-     * second test: 1 floor with 1 fake room
-     * third: fake floor
+     * First test: sum single floor
+     * Second test: 1 floor with 1 fake room
+     * Third: fake floor
      */
     @Test
     void testGetLight() {
@@ -99,9 +115,9 @@ class BuildingTest {
 
     /**
      * Check cubature getter.
-     * first test: sum single floor
-     * second test: 1 floor with 1 fake room
-     * third: fake floor
+     * First test: sum single floor.
+     * Second test: 1 floor with 1 fake room.
+     * Third: fake floor.
      */
     @Test
     void testGetCube() {
@@ -112,9 +128,9 @@ class BuildingTest {
 
     /**
      * Check heating getter.
-     * first test: sum single floor
-     * second test: 1 floor with 1 fake room
-     * third: fake floor
+     * First test: sum single floor.
+     * Second test: 1 floor with 1 fake room.
+     * Third: fake floor.
      */
     @Test
     void testGetHeating() {
@@ -123,13 +139,14 @@ class BuildingTest {
         assertEquals(0, building3.getHeating());
     }
 
-//    /**
-//     * TODO cała ta funkcja, rozkminić jak wyjąć wszystkie pokoje
-//     */
-//    @Test
-//    void testLevelHeating() {
-//        assertEquals(1, building1.levelHeating(0.6f)); //sum couple of rooms
-//        //assertEquals(10, building2.levelHeating(1)); //sum two floors, floor4 is empty
-//        //assertEquals(10, building3.levelHeating(1)); //sum single floor
-//    }
+    /**
+     * Check level heating getter.
+     * building1 contains only 1 room overheated.
+     */
+    @Test
+    void testLevelHeating() {
+        Set<Room> chosenRooms = new HashSet<Room>();
+        chosenRooms.add(room2);     // overheated with border 0.6
+        Assert.assertEquals(chosenRooms, building1.levelHeating(0.6f));
+    }
 }

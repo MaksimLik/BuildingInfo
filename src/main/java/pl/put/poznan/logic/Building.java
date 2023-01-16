@@ -5,22 +5,22 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Contains info about building
+ * Contains info about building.
  */
 @Entity
 @Table(name = "Buildings")
 public class Building extends BaseLocation implements Serializable
 {
     /**
-     * Set with information about all our floors in Building
+     * Set with information about all our floors in Building.
      */
     @OneToMany(targetEntity = Floor.class, cascade = CascadeType.ALL)
     private Set<Floor> floors;
+
     /**
     * Constructor - creating a new object with certain values
      * @param name - our name for Building or Room, Floor etc.
@@ -51,6 +51,7 @@ public class Building extends BaseLocation implements Serializable
             throw new IllegalArgumentException();
         floors.add(floor);
     }
+
     /**
      * This method uses for show information about all floors
      * Their id and name as table
@@ -68,6 +69,7 @@ public class Building extends BaseLocation implements Serializable
                 System.out.println("  |- " + r.id + ". " +  r.name);
         }
     }
+
     /**
      * This method uses to calculate the all area in building
      * @return sum of area all floors in building as [m^2]
@@ -83,6 +85,7 @@ public class Building extends BaseLocation implements Serializable
 
         return sum;
     }
+
     /**
      * Calculate light on the whole building
      * @return sum of area all room in building as [m^2]
@@ -96,21 +99,19 @@ public class Building extends BaseLocation implements Serializable
     }
 
     /**
-     * Show average value power of lightning on the floor
+     * Show average value power of lightning on the floor.
+     * @return light power in lumens
      */
-    public void showLightPower()
+    @Override
+    public float getLightPower()
     {
         float sum_area = this.getArea();
         float sum_light = this.getLight();
-        System.out.print("Average power of lightning in whole building " + this.name +": ");
-        if (sum_area != 0)
-            System.out.println(sum_light / sum_area);
-        else
-            System.out.println("0");
+        return sum_area != 0 ? sum_light / sum_area : 0.0f;
     }
 
     /**
-     * This method calculate sum of cube
+     * This method calculate sum of cube.
      * @return cube sum as [m^3] in the single building
      */
     @Override
@@ -123,7 +124,7 @@ public class Building extends BaseLocation implements Serializable
     }
 
     /**
-     * Sum heating in the building
+     * Sum heating in the building.
      * @return sum of the heating in whole building
      */
     @Override
@@ -136,13 +137,13 @@ public class Building extends BaseLocation implements Serializable
     }
 
     /**
-     * Add all overheating rooms to one list
+     * Add all overheating rooms to one list.
      * @param border border for room's heating
      * @return list of overheated rooms
      */
-    public ArrayList<Room> levelHeating(float border)
+    public Set<Room> levelHeating(float border)
     {
-        ArrayList<Room> rooms_list = new ArrayList<Room>();
+        Set<Room> rooms_list = new HashSet<Room>();
         for (Floor floor : floors)
         {
             rooms_list.addAll(floor.levelHeating(border));
@@ -150,9 +151,11 @@ public class Building extends BaseLocation implements Serializable
         return rooms_list;
     }
 
+    /**
+     * Get all the floors.
+     * @return set of floors
+     */
     public Set<Floor> getFloors() {
         return this.floors;
     }
-
-
 }

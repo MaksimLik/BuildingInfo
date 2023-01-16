@@ -114,15 +114,12 @@ public class Floor extends BaseLocation implements Serializable
     /**
      * Show average value power of lightning on the floor
      */
-    public void showLightPower()
+    @Override
+    public float getLightPower()
     {
         float sum_area = this.getArea();
         float sum_light = this.getLight();
-        System.out.print("Power of lightning on the floor " + this.name +": ");
-        if (sum_area != 0)
-            System.out.println(sum_light / sum_area);
-        else
-            System.out.println("0");
+        return sum_area != 0 ? sum_light / sum_area : 0.0f;
     }
 
     /**
@@ -155,16 +152,12 @@ public class Floor extends BaseLocation implements Serializable
      * @param border heating value which cannot be overrated
      * @return list of overheated rooms
      */
-    public ArrayList<Room> levelHeating(float border)
+    public Set<Room> levelHeating(float border)
     {
-        ArrayList<Room> group = new ArrayList<Room>();
+        Set<Room> group = new HashSet<Room>();
         for (Room room : rooms)
-        {
             if (room.heatingLevel(border))
-            {
                 group.add(room);
-            }
-        }
         return group;
     }
 }

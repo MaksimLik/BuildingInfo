@@ -46,7 +46,7 @@ public interface Location
     /**
      * Method that show average of the light
      */
-     void showLightPower();
+     float getLightPower();
 
     /**
      * Shows info about locations

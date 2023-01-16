@@ -77,7 +77,6 @@ public class Room extends BaseLocation
         this.light = light;
     }
 
-
     /**
      * Shows info about whole room
      */
@@ -92,21 +91,18 @@ public class Room extends BaseLocation
     }
 
     /**
-     * Show power of the light measured in lumens
+     * Get power of the light measured in lumens if area is a positive value.
+     * @return power of the light measured in lumens
      */
     @Override
-    public void showLightPower()
+    public float getLightPower()
     {
-        System.out.print("Power of lightning in room " + this.name +": ");
-        if (this.area !=0)
-            System.out.println(this.light / this.area);
-        else
-            System.out.println("0");
+        return this.area > 0 ? this.light / this.area : 0.0f;
     }
 
     /**
-     * Get area of the room
-     * @return
+     * Getter for area of this room
+     * @return area
      */
     @Override
     public float getArea() {
@@ -114,7 +110,7 @@ public class Room extends BaseLocation
     }
 
     /**
-     * This method sum cubes
+     * Getter for cubes of this room
      * @return size as [m^3]
      */
     @Override
@@ -123,7 +119,7 @@ public class Room extends BaseLocation
     }
 
     /**
-     * Method feeding the heating of one room
+     * Getter for heating of this room
      * @return amount of energy
      */
     @Override
@@ -132,7 +128,7 @@ public class Room extends BaseLocation
     }
 
     /**
-     * Method feeding the light of one room
+     * Getter for light of this room
      * @return amount of energy
      */
     @Override
@@ -147,25 +143,30 @@ public class Room extends BaseLocation
      */
     public boolean heatingLevel(float border)
     {
-        if( (this.cube != 0) && (this.heating / this.cube > border) )
-        {
-            return true;
-        }
-        return false;
+        return (this.cube != 0) && (this.heating / this.cube > border);
     }
 
-    public void setFloor(Floor floor) {
+    /**
+     * Use for REST API
+     * @param floor floor where is that room
+     */
+    public void setFloor(Floor floor)
+    {
         this.floor = floor;
     }
 
-    public void updateRoom(Room newRoom) {
+    /**
+     * Update data for room.
+     * @param newRoom data of updated room
+     */
+    public void updateRoom(Room newRoom)
+    {
         this.name = newRoom.getName();
         this.area = newRoom.getArea();
         this.cube = newRoom.getCube();
         this.heating = newRoom.getHeating();
         this.light = newRoom.getLight();
     }
-
 }
 
 
