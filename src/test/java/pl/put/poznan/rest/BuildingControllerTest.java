@@ -169,48 +169,33 @@ class BuildingControllerTest
     @Test
     void deleteBuildingById()
     {
-        // mock stuff
         mockBuildingRepository = mock(BuildingRepository.class);
         mockBuildingRepository.save(building);
         mockBuildings = Arrays.asList(building1, building2, building);
         mockBuildingService.insertBuilding(building);
-
-        // controller stuff
         buildingController.insertBuilding(building);
         List<Building> result = Arrays.asList(building1, building2, building);
         System.out.println(result);
-
-        // assert function
         assertEquals(mockBuildings , result);
     }
 
     @Test
     void deleteFloorById()
     {
-        // mock stuff
         mockFloorRepository = mock(FloorRepository.class);
-
-        // controller stuff
         buildingController.insertBuilding(building);
         List<Floor> result = Arrays.asList(floor1, floor2, floor3);
         System.out.println(result);
-
-        // assert function
         assertEquals(mockFloors , result);
     }
 
     @Test
     void deleteRoomById()
     {
-        // mock stuff
         mockRoomRepository = mock(RoomRepository.class);
-
-        // controller stuff
         buildingController.insertBuilding(building);
         List<Room> result = Arrays.asList(room1, room2, room3);
         System.out.println(result);
-
-        // assert function
         assertEquals(mockRooms , result);
     }
 }
