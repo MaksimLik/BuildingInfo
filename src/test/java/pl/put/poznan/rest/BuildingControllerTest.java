@@ -13,19 +13,27 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+/**
+ * Test BuildingController class using mocks.
+ */
 class BuildingControllerTest
 {
     private BuildingController buildingController;
     private BuildingService mockBuildingService;
-    private Building building;
-    
+    private BuildingRepository mockBuildingRepository;
+    private Building building1, building2, building;
+    private List<Building> mockBuildings;
+
+    /**
+     * buildingService is a mock for buildingController
+     */
     @BeforeEach
     void setUp()
     {
         mockBuildingService = mock(BuildingService.class);
 
-        Building building1 = new Building(1, "Building 1");
-        Building building2 = new Building(2, "Building 2");
+        building1 = new Building(1, "Building 1");
+        building2 = new Building(2, "Building 2");
         building = new Building(3, "Building");
 
         Floor floor1 = new Floor(3, "Carpet");
@@ -45,33 +53,36 @@ class BuildingControllerTest
         floor1.addRoom(room3);
         building1.addFloor(floor1);
 
-        List<Building> mockBuildings = Arrays.asList(building1, building2);
+        mockBuildings = Arrays.asList(building1, building2); //building1 contains 3 floors, building2 nothing
         when(mockBuildingService.getBuildings()).thenReturn(mockBuildings);
+
         buildingController = new BuildingController(mockBuildingService);
 
     }
 
     @Test
-    void getBuildings()
+    void testGetBuildings()
     {
         List<Building> buildings = buildingController.getBuildings();
         assertEquals(2, buildings.size());
     }
 
     @Test
-    void getBuildingById()
+    void testGetBuildingById()
     {
         Building building = new Building(1, "Building 1");
+
         when(mockBuildingService.getBuildingById(1)).thenReturn(building);
-        when(mockBuildingService.getBuildingById(10)).thenReturn(null);
         Building result1 = buildingController.getBuildingById(1);
-        Building result2 = buildingController.getBuildingById(10);
         assertEquals(building, result1);
+
+        when(mockBuildingService.getBuildingById(10)).thenReturn(null);
+        Building result2 = buildingController.getBuildingById(10);
         assertNull(result2);
     }
 
     @Test
-    void getFloorById()
+    void testGetFloorById()
     {
         Floor floor = new Floor(4, "Pietro");
         when(mockBuildingService.getFloorById(4)).thenReturn(floor);
@@ -82,7 +93,7 @@ class BuildingControllerTest
     }
 
     @Test
-    void getRoomById()
+    void testGetRoomById()
     {
         Room room = new Room(3, "Kuchnia");
         when(mockBuildingService.getRoomById(3)).thenReturn(room);
@@ -92,7 +103,7 @@ class BuildingControllerTest
     }
 
     @Test
-    void getOverheatedRooms()
+    void testGetOverheatedRooms()
     {
         Building building1 = buildingController.getBuildings().get(0);
         Room room1 = new Room(143, "Toilet", 15, 10, 11, 10);
@@ -106,11 +117,25 @@ class BuildingControllerTest
     }
 
     @Test
-    void insertBuilding()
+    void testInsertBuilding()
     {
+        // mock stuff
+        mockBuildingRepository = mock(BuildingRepository.class, CALLS_REAL_METHODS);
+        mockBuildingRepository.save(building);
+        mockBuildings = Arrays.asList(building1, building2, building);
+        mockBuildingService.insertBuilding(building);
 
 
 
+
+        // controller stuff
+        buildingController.insertBuilding(building);
+        List<Building> result = mockBuildingService.getBuildings();
+        System.out.println(result);
+
+
+        // assert function
+        assertEquals(mockBuildings , result);
     }
 
     @Test
