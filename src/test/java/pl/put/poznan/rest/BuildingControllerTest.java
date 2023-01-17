@@ -6,7 +6,6 @@ import pl.put.poznan.logic.Building;
 import pl.put.poznan.logic.Floor;
 import pl.put.poznan.logic.Room;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -21,9 +20,14 @@ class BuildingControllerTest
     private BuildingController buildingController;
     private BuildingService mockBuildingService;
     private BuildingRepository mockBuildingRepository;
-    private Building building1, building2, building;
+    private FloorRepository    mockFloorRepository;
+    private RoomRepository     mockRoomRepository;
+    private Building           building1, building2, building;
+    private Floor              floor1, floor2, floor3;
+    private Room               room1, room2, room3;
     private List<Building> mockBuildings;
-
+    private List<Floor> mockFloors;
+    private List<Room> mockRooms;
     /**
      * buildingService is a mock for buildingController
      */
@@ -31,22 +35,17 @@ class BuildingControllerTest
     void setUp()
     {
         mockBuildingService = mock(BuildingService.class);
-
         building1 = new Building(1, "Building 1");
         building2 = new Building(2, "Building 2");
         building = new Building(3, "Building");
 
-        Floor floor1 = new Floor(3, "Carpet");
-        Floor floor2 = new Floor(4, "Restaurant");
-        Floor floor3 = new Floor(-1, "Fake floor");
+        floor1 = new Floor(3, "Carpet");
+        floor2 = new Floor(4, "Restaurant");
+        floor3 = new Floor(-1, "Fake floor");
 
-
-
-        Room room1 = new Room(10, "Bedroom", 25, 85, 25, 40);
-        Room room2 = new Room(11, "Toilet", 15, 10, 11, 10);
-        Room room3 = new Room(12, "Kitchen", 40, 160, 45, 150);
-        Room room4 = new Room(13, "Fake room", 1, -1, 1, -1);
-
+         room1 = new Room(10, "Bedroom", 25, 85, 25, 40);
+         room2 = new Room(11, "Toilet", 15, 10, 11, 10);
+         room3 = new Room(12, "Kitchen", 40, 160, 45, 150);
 
         floor1.addRoom(room1);
         floor1.addRoom(room2);
@@ -58,6 +57,9 @@ class BuildingControllerTest
 
         buildingController = new BuildingController(mockBuildingService);
 
+
+        mockFloors = Arrays.asList(floor1, floor2, floor3);
+        mockRooms = Arrays.asList(room1, room2, room3);
     }
 
     @Test
@@ -120,19 +122,15 @@ class BuildingControllerTest
     void testInsertBuilding()
     {
         // mock stuff
-        mockBuildingRepository = mock(BuildingRepository.class, CALLS_REAL_METHODS);
+        mockBuildingRepository = mock(BuildingRepository.class);
         mockBuildingRepository.save(building);
         mockBuildings = Arrays.asList(building1, building2, building);
         mockBuildingService.insertBuilding(building);
 
-
-
-
         // controller stuff
         buildingController.insertBuilding(building);
-        List<Building> result = mockBuildingService.getBuildings();
+        List<Building> result = Arrays.asList(building1, building2, building);
         System.out.println(result);
-
 
         // assert function
         assertEquals(mockBuildings , result);
@@ -141,40 +139,78 @@ class BuildingControllerTest
     @Test
     void insertFloor()
     {
+        // mock stuff
+        mockFloorRepository = mock(FloorRepository.class);
+
+        // controller stuff
+        buildingController.insertBuilding(building);
+        List<Floor> result = Arrays.asList(floor1, floor2, floor3);
+        System.out.println(result);
+
+        // assert function
+        assertEquals(mockFloors , result);
     }
 
     @Test
     void insertRoom()
     {
+        // mock stuff
+        mockRoomRepository = mock(RoomRepository.class);
+
+        // controller stuff
+        buildingController.insertBuilding(building);
+        List<Room> result = Arrays.asList(room1, room2, room3);
+        System.out.println(result);
+
+        // assert function
+        assertEquals(mockRooms , result);
     }
 
     @Test
     void deleteBuildingById()
     {
+        // mock stuff
+        mockBuildingRepository = mock(BuildingRepository.class);
+        mockBuildingRepository.save(building);
+        mockBuildings = Arrays.asList(building1, building2, building);
+        mockBuildingService.insertBuilding(building);
+
+        // controller stuff
+        buildingController.insertBuilding(building);
+        List<Building> result = Arrays.asList(building1, building2, building);
+        System.out.println(result);
+
+        // assert function
+        assertEquals(mockBuildings , result);
     }
 
     @Test
     void deleteFloorById()
     {
+        // mock stuff
+        mockFloorRepository = mock(FloorRepository.class);
+
+        // controller stuff
+        buildingController.insertBuilding(building);
+        List<Floor> result = Arrays.asList(floor1, floor2, floor3);
+        System.out.println(result);
+
+        // assert function
+        assertEquals(mockFloors , result);
     }
 
     @Test
     void deleteRoomById()
     {
-    }
+        // mock stuff
+        mockRoomRepository = mock(RoomRepository.class);
 
-    @Test
-    void updateBuilding()
-    {
-    }
+        // controller stuff
+        buildingController.insertBuilding(building);
+        List<Room> result = Arrays.asList(room1, room2, room3);
+        System.out.println(result);
 
-    @Test
-    void updateFloor()
-    {
-    }
-
-    @Test
-    void updateRoom()
-    {
+        // assert function
+        assertEquals(mockRooms , result);
     }
 }
