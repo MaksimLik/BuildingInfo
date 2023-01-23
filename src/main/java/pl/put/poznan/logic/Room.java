@@ -167,6 +167,10 @@ public class Room extends BaseLocation
         this.heating = newRoom.getHeating();
         this.light = newRoom.getLight();
     }
+
+    public Floor getFloor() {
+        return this.floor;
+    }
 }
 
 

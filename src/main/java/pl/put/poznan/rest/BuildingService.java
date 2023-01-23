@@ -3,7 +3,6 @@ package pl.put.poznan.rest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.put.poznan.logic.Building;
-import pl.put.poznan.logic.BaseLocation;
 import pl.put.poznan.logic.Floor;
 import pl.put.poznan.logic.Room;
 
@@ -17,11 +16,15 @@ public class BuildingService {
     private final FloorRepository floorRepository;
     private final RoomRepository roomRepository;
 
+    private final LocationRepository locationRepository;
+
     @Autowired
-    public BuildingService(BuildingRepository buildingRepository, FloorRepository floorRepository, RoomRepository roomRepository) {
+    public BuildingService(BuildingRepository buildingRepository, FloorRepository floorRepository, RoomRepository roomRepository, LocationRepository locationRepository) {
         this.buildingRepository = buildingRepository;
         this.floorRepository = floorRepository;
         this.roomRepository = roomRepository;
+
+        this.locationRepository = locationRepository;
     }
 
     public List<Building> getBuildings() {
@@ -92,20 +95,36 @@ public class BuildingService {
     }
 
     public void deleteFloorById(int id) {
+        System.out.println("Usuwanie pietra");
         boolean exists = floorRepository.existsById(id);
         if (!exists) {
             throw new IllegalArgumentException("floor does not exists");
         }
-        floorRepository.deleteById(id);
+        Floor floor = null;
+        if(floorRepository.findById(id).isPresent()) {
+            floor = floorRepository.findById(id).get();
+            Building b = floor.getBuilding();
+            b.getFloors().remove(floor);
+            floor.setBuilding(null);
+            floorRepository.delete(floor);
+        }
 
     }
 
     public void deleteRoomById(int id) {
+        System.out.println("Usuwanie pietra");
         boolean exists = roomRepository.existsById(id);
         if (!exists) {
-            throw new IllegalArgumentException("room does not exists");
+            throw new IllegalArgumentException("floor does not exists");
         }
-        roomRepository.deleteById(id);
+        Room room = null;
+        if (roomRepository.findById(id).isPresent()) {
+            room = roomRepository.findById(id).get();
+            Floor f = room.getFloor();
+            f.getRooms().remove(room);
+            room.setFloor(null);
+            roomRepository.deleteById(id);
+        }
     }
 
     public List<Room> getOverheatedRooms(int id, int value) {
