@@ -1,0 +1,4 @@
+pl\put\poznan\logic\FloorTest.class
+pl\put\poznan\logic\RoomTest.class
+pl\put\poznan\logic\BuildingTest.class
+pl\put\poznan\rest\BuildingControllerTest.class

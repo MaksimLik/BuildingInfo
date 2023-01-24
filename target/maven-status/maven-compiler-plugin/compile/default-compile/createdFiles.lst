@@ -1,0 +1,13 @@
+pl\put\poznan\logic\Building.class
+pl\put\poznan\CorsConfig.class
+pl\put\poznan\logic\Location.class
+pl\put\poznan\rest\BuildingController.class
+pl\put\poznan\rest\FloorRepository.class
+pl\put\poznan\rest\BuildingRepository.class
+pl\put\poznan\rest\LocationRepository.class
+pl\put\poznan\logic\BaseLocation.class
+pl\put\poznan\BuildingApplication.class
+pl\put\poznan\rest\BuildingService.class
+pl\put\poznan\logic\Floor.class
+pl\put\poznan\logic\Room.class
+pl\put\poznan\rest\RoomRepository.class
