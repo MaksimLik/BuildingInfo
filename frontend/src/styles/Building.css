@@ -1,0 +1,64 @@
+.building__properties-value {
+    font-weight: bold;
+}
+
+.building__properties li {
+    margin-left: 10px;
+}
+
+.buildings_details__button {
+    border: none;
+    font-weight: bold;
+    height: 50px;
+    margin-bottom: 10px;
+    width: 100%;
+    transition: 0.5;
+    background-color: white;
+}
+
+.buildings_details__button a{
+    display: block;
+    height: 100%;
+    line-height: 50px;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.buildings_details__button:hover {
+    cursor: pointer;
+    background-color: #e49d00;
+    color: white;
+}
+
+
+.buildings_details__button:hover a {
+    color: white;
+}
+
+.building__name {
+    padding-top: 15px;
+    border-bottom: 2px solid black;
+}
+
+
+.building {
+    width: 47%;
+    gap: 15px;
+    margin-bottom: 30px;
+    background-color: #85c91a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 10px 10px 5px #888888;
+    
+}
+
+.building.room {
+    width: 30%;   
+}
+  
+.room.red {
+   background-color: red;
+}
+  

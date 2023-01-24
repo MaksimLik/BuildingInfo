@@ -1,0 +1,111 @@
+.App {
+    max-width: 70vw;
+    margin: 0 auto;
+    background-color: white;
+    padding: 0 15px;
+    box-shadow: 10px 0px 5px #888888, -10px -0px 5px #888888;
+}
+
+body {
+    background-image: url('../public/images/background.png');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+.main-content {
+    min-height: calc(100vh - 150px)
+}
+
+
+.header {
+    height: 150px;
+}
+
+.menu {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.menu__logo {
+ 
+    height: 150px;
+    width: 150px;
+    flex-wrap: nowrap;
+    position: relative;
+    user-select: none;
+
+
+   
+}
+
+
+.menu__logo img {
+    height: 100%;
+    position: absolute;
+    user-select: none;
+}
+
+.menu__list {
+    display: flex;
+    gap: 20px;
+    font-size: 24px;
+    padding: 5px;
+    
+}
+
+.menu__item a {
+    color: black;
+    transition: 0.5
+}
+
+.menu__item a:hover {
+    color: #85c91a;
+}
+
+.rotate_left {
+    animation: rotation_left 2s infinite linear;
+}
+
+.rotate_right {
+    animation: rotation_right 4s infinite linear;
+}
+
+
+.button {
+    width: 120px;
+    padding: 20px;
+    font-weight: bold;
+    font-size: 24px;
+    color: black;
+    border-radius: 10px;    
+    border: none;
+    background-color: #85c91a;
+    cursor: pointer;
+}
+
+.button.red {
+    background-color: red;
+}
+
+
+@keyframes rotation_left {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes rotation_right {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+
