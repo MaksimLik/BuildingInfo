@@ -25,6 +25,8 @@ Dla administratorów budynków, którzy pragną optymalizować koszty zarządzan
 
 ![UML diagram](https://user-images.githubusercontent.com/72620745/209119575-3ccbf8af-4b1b-433f-87fe-60eef96d8c41.png)
 
+---
+
 #### Product Backlog:
 
 <html>
@@ -43,7 +45,9 @@ Jako użytkownik mogę skorzystać z aplikacji za pomocą interfejsu użytkownik
 <!--EndFragment-->
 </body>
 </html>
-
+ 
+---
+ 
 #### Sprint Backlog:
 
 1. Jako twórca oprogramowania do zarządzania budynkami mogę korzystać z dostępnych funkcji zdalnie poprzez REST, aby móc  zintegrować narzędzie z moimi innymi aplikacjami [12 h]:
