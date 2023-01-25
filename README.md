@@ -44,7 +44,7 @@ Jako użytkownik mogę skorzystać z aplikacji za pomocą interfejsu użytkownik
 </body>
 </html>
 
-####Sprint Backlog
+#### Sprint Backlog:
 
 1. Jako twórca oprogramowania do zarządzania budynkami mogę korzystać z dostępnych funkcji zdalnie poprzez REST, aby móc  zintegrować narzędzie z moimi innymi aplikacjami [12 h]:
 1.1. Dowiedzieć się jak się robi REST [3 h]
