@@ -1,4 +1,4 @@
-# IOD-I51-Alpha-BuildingInfo
+# BuildingInfo
 ## Projekt: Building Info
 ## Opis projektu:
 
