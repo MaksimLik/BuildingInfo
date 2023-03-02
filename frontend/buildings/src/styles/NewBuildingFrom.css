@@ -1,0 +1,43 @@
+.form label {
+    font-size: 24px;
+  
+}
+
+.new_building_container{
+    margin-top: 30px;
+}
+
+.new_building_container h1 {
+    margin-bottom: 30px;
+}
+
+.form input {
+    font-size: 24px;
+    margin-left: 10px;
+}
+
+
+.form__button {
+    width: 120px;
+    padding: 20px;
+    font-weight: bold;
+    font-size: 24px;
+    color: black;
+    border-radius: 10px;    
+    border: none;
+    background-color: #85c91a;
+}
+
+.error_message {
+    color: red;
+    font-weight: bold;
+    font-size: 12px;
+    margin: 5px;
+}
+
+.success_message {
+    color: #85c91a;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 5px;
+}

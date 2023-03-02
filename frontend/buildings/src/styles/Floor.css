@@ -1,0 +1,26 @@
+.floor_heading {
+    margin: 20px 0 ;
+    text-align: center;
+    font-size: 30px;
+}
+
+.floor_button {
+    padding: 10px;
+    font-weight: bold;
+    font-size: 12px;
+    color: black;
+    border-radius: 10px;    
+    border: none;
+    background-color: #85c91a;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.floor_button.red {
+    background-color:#b80000;
+}
+
+.floor_button a{
+    color: black;
+    
+}

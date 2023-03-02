@@ -1,0 +1,28 @@
+.main_heading {
+    text-align: center;
+    padding-bottom: 50px;
+    color: black;
+
+}
+
+.buildings_list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+
+.floors_list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: flex-start;
+    padding: 10px;
+}
+
+
+.building.room {
+    margin-right: 15px;
+}
