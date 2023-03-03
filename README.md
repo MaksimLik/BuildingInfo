@@ -2,7 +2,7 @@
 ## Projekt: Building Info
 ## Opis projektu:
 
-Dla administratorów budynków, którzy pragną optymalizować koszty zarządzania budynkami  nasza aplikacja Building Info umożliwi pozyskanie informacji o parametrach budynku na poziomie pomieszczeń, kondygnacji oraz całych budynków. Aplikacja będzie dostępna poprzez GUI a także jako zdalne API dzięki czemu można ją zintegrować z istniejącymi narzędziami.
+Dla administratorów budynków, którzy pragną optymalizować koszty zarządzania budynkami nasza aplikacja Building Info umożliwi pozyskanie informacji o parametrach budynku na poziomie pomieszczeń, kondygnacji oraz całych budynków. Aplikacja będzie dostępna poprzez GUI a także jako zdalne API dzięki czemu można ją zintegrować z istniejącymi narzędziami.
  ## Struktura danych:
 * Lokacja to budynek, poziom, lub pomieszczenie
 ##
@@ -17,6 +17,17 @@ Dla administratorów budynków, którzy pragną optymalizować koszty zarządzan
   *    cube = kubatura pomieszczenia w m^3
   *    heating = poziom zużycia energii ogrzewania (float)
   *    light – łączna moc oświetlenia
+ ## Krótko o projekcie:
+ Projekt - to jest strona internetowa:
+ ![web1](https://user-images.githubusercontent.com/72620745/222795234-dfad51d8-5f37-4405-b996-23f13b9f0ada.png)
+Aplikacja pozwala na wyświetlenie budynków i pokojów, dodanie, usunięcie. Oprócz tego dla każdego budynku można wpisać kubaturę, limit na energię i ogrzewanie - te ograncizenia podajemy dla każdego pokoju w budynku. 
+![web2](https://user-images.githubusercontent.com/72620745/222797113-7b8543e8-55fc-4b16-becb-663102d915f0.png)
+GUI jest zrobione za pomocą JAVA Spring z dodatkiem javascript, CSS. Oprócz tego projekt posiada:
+1. Dokumentację
+2. UML diagram
+3. Testy jednostkowe
+4. Testy jednostkowe objektów mock
+
  ### Niezbędne informacje dotyczące projektu:
  ##
 1. Informacja o ocenie czasochłonności projektu i wybranych zadań do implementacji znajduje się niżej z linkiem na Google Docks:
@@ -27,7 +38,7 @@ Dla administratorów budynków, którzy pragną optymalizować koszty zarządzan
 
 ---
 
-#### Product Backlog:
+## Product Backlog:
 
 <html>
 <body>
@@ -48,7 +59,7 @@ Jako użytkownik mogę skorzystać z aplikacji za pomocą interfejsu użytkownik
  
 -----
  
-#### Sprint Backlog:
+## Sprint Backlog:
 
 1. Jako twórca oprogramowania do zarządzania budynkami mogę korzystać z dostępnych funkcji zdalnie poprzez REST, aby móc  zintegrować narzędzie z moimi innymi aplikacjami [12 h]:
 ####
@@ -116,6 +127,21 @@ ______________________________________________________________________________
 ______________________________________________________________________________
 9. Rozmowa ze wszystkimi członkami dotycząca optymalizacji pracy (Jak nie marnować czas na rozmowy podczas spotkania i co robić jak przestała działać aplikacja) [1 h]
 Było przeprowadzono kilka spotkań około 10-20 min każde, suma tych wszystkich spotkań dotyczących analizy pracy zespołowej i optymalizacji czasu pracy ~ 1h
+
+## Uruchomienie projektu:
+1. Pobieramy Projekt
+2. Musimy mieć zainstalowane: Intellij IDEA, MySQL Workbench 8.0 CE,  Node.js
+3. Włączamy MySQL Workbench 8.0 CE i tworzymy połączenie gdzie wpisujemy następne komendy, żeby stworzyć BD: 
+####
+ 3.1. create schema test;
+####
+ 3.2. use test;
+####
+4. Odpalamy program w Intellij IDEA i kompilujemy projekt - można skorzystać z pliku JAR;
+5. Odpalamy terminal i przechodzimy do pliku w projekcie /frontend/buildings i wpisujemy następne komendy:
+####
+ 5.1. npm start
+
 
 
 
